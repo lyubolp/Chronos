@@ -28,8 +28,6 @@ Time tracking CLI app written in Rust
   - `chronos summary`
 - Get summary for time spent on a certain project (Wildcard matching ?)
   - `chronos summary --project "ProjectName"`
-- Set a timer for a project
-  - `chronos timer set --project "ProjectName" --amount minutes`
 - Export all entries (in JSON)
   - `chronos export`
 - Export all entries for a project
