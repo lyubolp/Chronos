@@ -1,21 +1,30 @@
 pub mod project {
     use crate::entry::entry::Entry;
-    use chrono::{DateTime, Utc};
+    use chrono::{DateTime, Utc, Local};
 
     pub struct Project {
         name: String,
         description: Option<String>,
-        start: DateTime<Utc>,
-        end: Option<DateTime<Utc>>,
+        start: DateTime<Local>,
+        end: Option<DateTime<Local>>,
         is_active: bool,
         entries: Vec<Entry>
     }
 
 
     impl Project {
-        pub fn new(name: String, description: Option<String>, start: DateTime<Utc>, end: Option<DateTime<Utc>>, is_active: bool) -> Self {
+        pub fn new(name: &str, description: Option<&str>, start: DateTime<Local>, end: Option<DateTime<Local>>, is_active: bool) -> Self {
             let entries: Vec<Entry> = vec!();
-            Project { name, description, start, end, is_active, entries }
+            Project {
+                name: String::from(name),
+                description: match description {
+                    Some(value) => Some(String::from(value)),
+                    None => None
+                },
+                start,
+                end,
+                is_active,
+                entries }
         }
 
         pub fn name(&self) -> &str {
