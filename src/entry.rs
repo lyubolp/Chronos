@@ -9,9 +9,9 @@ pub mod entry{
     }
 
     impl Entry {
-        pub fn new(start: DateTime<Utc>, end: Option<DateTime<Utc>>, comment: Option<String>) -> Self {
+        pub fn new(id: u32, start: DateTime<Utc>, end: Option<DateTime<Utc>>, comment: Option<String>) -> Self {
             Entry {
-                id: generate_entry_id(),
+                id,
                 start,
                 end,
                 comment
@@ -42,9 +42,4 @@ pub mod entry{
             unimplemented!("Not yet implemented !")
         }
     }
-
-    fn generate_entry_id() -> u32 {
-        unimplemented!("Not yet implemented !")
-    }
-
 }
